@@ -2,14 +2,19 @@ package ru.greatstep.service;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.LinkedHashSet;
 import java.util.List;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.greatstep.exception.MemoryIsOverException;
 
 class NameServiceTest {
+
+    @BeforeEach
+    public void init() {
+        NameService.getNames().clear();
+    }
 
     @Test
     @DisplayName("Ожидается успешное добавление элемента")
@@ -48,6 +53,5 @@ class NameServiceTest {
         }
         Assertions.assertEquals(expect, NameService.getNames());
     }
-
 
 }
